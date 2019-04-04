@@ -1,0 +1,29 @@
+<!--pages/selectplant/selectplant.wxml-->
+<view>
+  <view class='headBox'>
+    <image class='selectImg' src="{{selImg}}" mode="aspectFill"></image>
+    <view class='selectName'>{{selectItem.name}}</view>
+    <view class='selectDesc'>{{selectItem.desc}}</view>
+  </view>
+  <view class='listBox'>
+    <swiper class='listScroll' current='{{listIndex}}' bindchange='changeScroll'>
+      <block wx:for="{{indentList}}" wx:key="key">
+        <swiper-item>
+          <view class='listItem' bindtap='checkDetail' data-item="{{item}}">
+            <image src="{{item.reference_url}}" mode="aspectFill"></image>
+            <view class='listRight'>
+              <view class='listTitle'>{{item.name}}</view>
+              <view class='listText'>科：{{item.family}}</view>
+              <view class='listText'>属：{{item.genus}}</view>
+              <view class='listFoot'>更多介绍</view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <image class='arrow left' bindtap='scrollLeft' src='../../static/left.png' wx:if='{{listIndex>0}}'></image>
+    <image class='arrow right' bindtap='scrollRight' src='../../static/right.png' wx:if='{{listIndex<indentList.length-1}}'></image>
+  </view>
+  <view class='recamera' bindtap='recamera'>重新拍照</view>
+  <view class='rechoose' bindtap='rechoose'>重新选择照片</view>
+</view>

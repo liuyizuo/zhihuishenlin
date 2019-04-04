@@ -1,0 +1,2 @@
+<!--pages/plantdetail/plantdetail.wxml-->
+<web-view src="{{weburl}}"></web-view>

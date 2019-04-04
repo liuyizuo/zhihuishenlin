@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<import src="/pages/template/tabBar.wxml" />
+<map id='mapView' class='mapview' longitude='{{coord.longitude}}' latitude='{{coord.latitude}}' show-location='true'>
+  <cover-view bindtap="menuBindTap">
+    <template is="tabBar" data="{{tabBar: tabBar}}" />
+  </cover-view>
+  <cover-view class='recover' bindtap='recoverLatLng'>
+    <cover-image src='../../static/recover.png'></cover-image>
+  </cover-view>
+  <cover-view class='controls'></cover-view>
+</map>

@@ -1,0 +1,22 @@
+{
+  "pages":[
+    "pages/scan/scan",
+    "pages/index/index",
+    "pages/plantdetail/plantdetail",
+    "pages/selectplant/selectplant",
+    "pages/information/information",
+    "pages/logs/logs",
+    "pages/userBind/userBind",
+    "pages/tabbar/tabbar",
+    "pages/certlist/certlist",
+    "pages/certificate/certificate",
+    "pages/activity/activity",
+    "pages/find/find"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

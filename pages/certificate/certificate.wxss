@@ -1,0 +1,171 @@
+/* pages/certificate/certificate .wxss */
+page{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.contentBox{
+  width: 98vw;
+  height: 98vh;
+  background: url('http://120.24.215.190:4494/wechat_img/treeBG.png');
+  background-size: 100% 100%;
+  margin: 1vh 1vw;
+  overflow: hidden;
+}
+.treeheader{
+  width: 100%;
+  height: 280rpx;
+  position: relative;
+  padding: 40rpx 0 30rpx;
+}
+.treeheader image{
+  width: 348rpx;
+  height: 280rpx;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.infoBG{
+  width: 100%;
+  height: 72vh;
+}
+.userInfo{
+  overflow: hidden;
+}
+.userInfo image{
+  width: 260rpx;
+  height: 146rpx;
+  margin: 30rpx 30rpx;
+  float: left;
+  border-radius: 15rpx;
+}
+.usertext{
+  width: 100%;
+  float: left;
+}
+.usertit{
+  margin-bottom: 10rpx;
+  padding-left: 30rpx;
+  font-size: 14px;
+  color: #333;
+  text-indent:30px;
+}
+.username{
+  margin-top: 20rpx;
+  font-size: 19px;
+  color: #333;
+  text-align:center;
+  margin: 0 100rpx;
+}
+.notice{
+  text-indent: 30px;
+  padding: 20rpx 30rpx 0rpx;
+  font-size: 17px;
+  color: #636363;
+}
+.notice view{
+  margin-bottom: 10rpx;
+}
+.number{
+  width: 500rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+  margin: 40rpx auto 30rpx;
+  text-align: center; 
+  color: #2BB765;
+  border-radius: 25rpx;
+  border: 1px solid #2BB765;
+  position: relative;
+}
+.number .notitle{
+  width: 120rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  position: absolute;
+  top: -26rpx;
+  left: 40rpx;
+  font-size: 30rpx;
+  background: #fff;
+}
+.QRcode{
+  width: 200rpx;
+  height: 200rpx;
+  position: fixed;
+  bottom: 80rpx;
+  left: 80rpx;
+}
+.seal{
+  width: 260rpx;
+  height: 260rpx;
+  background: url('http://120.24.215.190:4494/wechat_img/seal.png');
+  background-size: cover;
+  position: fixed;
+  bottom: 50rpx;
+  right: 80rpx;
+  z-index: 10;
+}
+.treepic{
+  height: 270rpx;
+  width: 480rpx;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.foot{
+  position: fixed;
+  bottom: 35rpx;
+  right: 40rpx;
+  z-index: 1;
+}
+.foot view{
+  font-size: 13px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 25rpx;
+}
+
+/* 遮罩层 */
+.shade{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0.8);
+}
+.shade image{
+  width: 100vw;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.shade .shareImg{
+  width: 80vw;
+  height: 80vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -57%);
+}
+.keepImg{
+  width: 50vw;
+  height: 80rpx;
+  line-height: 80rpx;
+  position: absolute;
+  bottom: 6.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 40rpx;
+  background: #7FBFCB;
+  color: #fff;
+  text-align: center;
+}
+
+.share{
+  position: absolute;
+  top: 50rpx;
+  right: 70rpx;
+  font-size: 24rpx;
+  z-index:1;
+}

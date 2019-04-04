@@ -1,0 +1,29 @@
+<!--pages/userBind/userBind.wxml-->
+<view class='contentBox'>
+  <image src="http://120.24.215.190:4494/wechat_img/bgtree.png" class='bgtree'></image>
+  <view class='formBox'>
+    <view class='titleBox'>
+      <text class='title'>用户信息</text>
+    </view>
+    <view class='iptBox'>
+      <view>*</view><text>姓名：</text>
+      <input placeholder="请输入姓名" bindinput="iptname" type="text"></input>
+    </view>
+    <view class='iptBox'>
+      <view>*</view><text>身份证号：</text>
+      <input placeholder="请输入身份证号" bindinput="iptIdcard" type="idcard"></input>
+    </view>
+    <view class='iptBox'>
+      <view>*</view><text>单位：</text>
+      <input placeholder="请输入单位名称" bindinput="iptunit" type="text"></input>
+    </view>
+    <view class='iptBox'>
+      <view>*</view><text>电话：</text>
+      <input placeholder="请输入电话号码" bindinput="iptphone" type="number"></input>
+    </view>
+    <view class='explainBox'>
+      *<text class='explain'>第一次使用需要进行一次授权绑定，授权之后就可以直接使用功能了</text>
+    </view>
+    <button class='submit' open-type="getUserInfo" bindgetuserinfo="getInfo">授权</button>
+  </view>
+</view> 

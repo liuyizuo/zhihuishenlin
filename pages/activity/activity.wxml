@@ -1,0 +1,166 @@
+<!--pages/activity/activity.wxml-->
+<view class='container'>
+  <view class='nav'>
+    <!-- <view class="navbar">
+      <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+    </view> -->
+    <view>
+      <view class='ViewInput'>
+        <form bindsubmit="formSubmit" bindreset="formReset">
+          <view class="itemView">
+            <text class='itemName'>地块</text>
+            <picker bindchange="bindPickerChangeDK" bindtap="tapPickerDK" range="{{arrayDK}}" range-key="Land" index="{{idxDK}}" class='cybm_pic_1 valueStyle' disabled="{{arrayDK.length==0}}">
+              <view class="picker">{{valueDK?valueDK:"请选择地块"}}</view>
+            </picker>
+          </view>
+          <view class="itemView">
+            <text class='itemName'>标段</text>
+            <picker bindchange="bindPickerChangeBD" bindtap="tapPickerBD" range="{{arrayBD}}" range-key="UnitProjectName" index="{{idxBD}}" class='cybm_pic_1 valueStyle' disabled="{{arrayBD.length==0}}">
+              <view class="picker">{{valueBD?valueBD:"请选择标段"}}</view>
+            </picker>
+          </view>
+          <view class="itemView">
+            <text class='itemName'>小班</text>
+            <picker bindchange="bindPickerChangeXB" bindtap="tapPickerXB" range="{{arrayXB}}" range-key="SmallClassName" index="{{idxXB}}" class='cybm_pic_1 valueStyle' disabled="{{arrayXB.length==0}}">
+              <view class="picker">{{valueXB?valueXB:"请选择小班"}}</view>
+            </picker>
+          </view>
+          <view class="itemView">
+            <text class='itemName'>细班</text>
+            <picker bindchange="bindPickerChangeXXB" bindtap="tapPickerXXB" range="{{arrayXXB}}" range-key="ThinClassName" index="{{idxXXB}}" class='cybm_pic_1 valueStyle' disabled="{{arrayXXB.length==0}}">
+              <view class="picker">{{valueXXB?valueXXB:"请选择细班"}}</view>
+            </picker>
+          </view>
+          <view class="itemView">
+            <text class='itemName'>树种</text>
+            <!-- <text class='title'>{{treeType}}</text> -->
+            <picker mode="multiSelector" range="{{arraySZ}}" range-key="name" index="{{idxSZ}}" data-value="{{arraySZ[1][idxSZ[1]].name}}" class="cybm_pic_1 valueStyle" bindchange="bindPickerChangeSZ" bindcolumnchange="bindColumnChangeSZ" bindtap='tapSZPicker'>
+              <!-- <view class="picker">{{valueSZ?valueSZ:"请选择树种"}}</view> -->
+              <view class="picker">{{szcode?szcode.name:"请选择树种"}}</view>
+            </picker>
+          </view>
+          <view class="itemView" wx:if="{{isXJ}}">
+            <text class='itemName'>胸径(cm)</text>
+            <input class="input valueStyle" name="userName" placeholder="请输入胸径" bindinput="XJInput"  value="{{valueXJ}}"/>
+            <view class='up-pic'>
+              <view class='flex pic-box'>
+                <block wx:key="idx" wx:for="{{imgbox[0].list}}">
+                  <view class='ap-box'>
+                    <view class='add-pic'>
+                      <image class='add-pic' src='{{item}}'></image>
+                      <view class='img-de' data-deindex='{{index}}' bindtap='imgDelete' data-type="0">
+                        <!-- 右上角的删除按钮图片 -->
+                        <image class='img' src='/static/Del.png'></image>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+                <view class='add-pic' bindtap='addPic' data-type="0">
+                  <image class='img' src='/static/upLoadImg.png'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="itemView" wx:if="{{isGD}}">
+            <text class='itemName'>高度(cm)</text>
+            <input class="input valueStyle" name="userName" placeholder="请输入高度" bindinput="GDInput" value="{{valueGD}}"/>
+            <view class='up-pic'>
+              <view class='flex pic-box'>
+                <block wx:key="idx" wx:for="{{imgbox[1].list}}">
+                  <view class='ap-box'>
+                    <view class='add-pic'>
+                      <image class='add-pic' src='{{item}}'></image>
+                      <view class='img-de' data-deindex='{{index}}' bindtap='imgDelete' data-type="1">
+                        <!-- 右上角的删除按钮图片 -->
+                        <image class='img' src='/static/Del.png'></image>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+                <view class='add-pic' bindtap='addPic' data-type="1">
+                  <image class='img' src='/static/upLoadImg.png'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="itemView" wx:if="{{isGF}}">
+            <text class='itemName'>冠幅(cm)</text>
+            <input class="input valueStyle" name="userName" placeholder="请输入冠幅" bindinput="GFInput" value="{{valueGF}}"/>
+            <view class='up-pic'>
+              <view class='flex pic-box'>
+                <block wx:key="idx" wx:for="{{imgbox[2].list}}">
+                  <view class='ap-box'>
+                    <view class='add-pic'>
+                      <image class='add-pic' src='{{item}}'></image>
+                      <view class='img-de' data-deindex='{{index}}' bindtap='imgDelete' data-type="2">
+                        <!-- 右上角的删除按钮图片 -->
+                        <image class='img' src='/static/Del.png'></image>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+                <view class='add-pic' bindtap='addPic' data-type="2">
+                  <image class='img' src='/static/upLoadImg.png'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="itemView" wx:if="{{isDJ}}">
+            <text class='itemName'>地径(cm)</text>
+            <input class="input valueStyle" name="userName" placeholder="请输入地径" bindinput="DJInput"  value="{{valueDJ}}"/>
+            <view class='up-pic'>
+              <view class='flex pic-box'>
+                <block wx:key="idx" wx:for="{{imgbox[3].list}}">
+                  <view class='ap-box'>
+                    <view class='add-pic'>
+                      <image class='add-pic' src='{{item}}'></image>
+                      <view class='img-de' data-deindex='{{index}}' bindtap='imgDelete' data-type="3">
+                        <!-- 右上角的删除按钮图片 -->
+                        <image class='img' src='/static/Del.png'></image>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+                <view class='add-pic' bindtap='addPic' data-type="3">
+                  <image class='img' src='/static/upLoadImg.png'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="itemView">
+            <text class='itemName'>合影留念</text>
+            <view class='up-pic'>
+              <view class='flex pic-box'>
+                <block wx:key="idx" wx:for="{{photo}}">
+                  <view class='ap-box'>
+                    <view class='add-pic'>
+                      <image class='add-pic' src='{{item}}'></image>
+                      <view class='img-de' data-deindex='{{index}}' bindtap='imgDelete' data-type="4">
+                        <!-- 右上角的删除按钮图片 -->
+                        <image class='img' src='/static/Del.png'></image>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+                <view class='add-pic' bindtap='addPic' data-type="4" wx:if="{{photo.length==0}}">
+                  <image class='img' src='/static/upLoadImg.png'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='sign-inbtn'>
+            <button class='sign-btn' bindtap="submit">提交</button>
+          </view>
+
+          <!-- <view class="itemView">
+            <text class='itemName'>用户名</text>
+            <input class="input valueStyle" name="userName" placeholder="请输入用户名" bindinput="userNameInput" />
+          </view> -->
+        </form>
+      </view>
+
+    </view>
+
+  </view>
+
+</view>

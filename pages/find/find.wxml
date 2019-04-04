@@ -1,0 +1,35 @@
+<!--pages/find/find.wxml-->
+<import src="/pages/template/tabBar.wxml" />
+<view class='contentBox'>
+  <view class='treeHead'>
+    <image src="/static/bgtree.png" class='bgtree'></image>
+    <view class='userInfo'>
+      <view class="userpicBox" wx-if="{{authority==1}}">
+        <image src="{{userpic}}" class='userpic'></image>
+      </view>
+      <view class='username' wx-if="{{authority==1}}">{{username}}</view>
+    </view>
+  </view>
+  <view>
+    <view class='btnli' bindtap='navcert' wx:for="{{trees}}" wx:key="idx" data-value="{{item}}">
+      <image src="{{item.Photo}}" class='treepic' mode='aspectFill'></image>
+      <view class='treetext'>{{item.TreeTypeObj.TreeTypeName}}</view>
+      <image src="/static/arrow.png" class='arrow'></image>
+    </view>
+    <view class='block' wx:if="{{trees.length==0}}">
+      还未上传过树木信息
+    </view>
+  </view>
+  <view wx-if="{{authority==0}}" class='popupBox'>
+    <view class='popup'>
+      <image src="/resources/popupHeader.png"></image>
+      <view class='title'>授权已过期</view>
+      <view class='titlecon'>是否重新对页面进行授权？</view>
+      <button class='popbtn cancel' bindtap="cancel">取消</button>
+      <button class='popbtn ok' open-type="getUserInfo" bindgetuserinfo="ok">授权</button>
+    </view>
+  </view>
+</view>
+<cover-view bindtap="menuBindTap">
+  <template is="tabBar" data="{{tabBar: tabBar}}" />
+</cover-view>

@@ -1,0 +1,146 @@
+/* pages/activity/activity.wxss */
+
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.fr{
+  float: right;
+}
+
+.nav {
+  width: 100%;
+}
+
+.ViewInput {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+
+.itemView {
+  position: relative;
+  border-bottom: 1px solid #efefef;
+  padding: 20rpx 0;
+  overflow: hidden;
+}
+
+.itemName {
+  position: absolute;
+  display: inline-block;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  color: #808080;
+}
+
+.UpImg {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.itemView .valueStyle {
+  text-align: right;
+  color: #666;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding-right: 10rpx;
+}
+.title{
+  float: right;
+  color:#666;
+  height:70rpx;
+  line-height:70rpx;
+  padding-right:10rpx;
+}
+
+.massifImg {
+  display: inline-block;
+  font-size: 36rpx;
+  width: 30rpx;
+  height: 20rpx;
+  line-height: 20rpx;
+  color: #c5c4c9;
+  position: absolute;
+  right: 0;
+  top: 42rpx;
+}
+
+.itemView .picker {
+  color: #666;
+  /* padding-right: 20rpx; */
+}
+
+.flex {
+  display: flex;
+}
+
+.up-pic {
+  /* padding:20rpx 24rpx; */
+  width: 100%;
+  justify-content: center;
+}
+
+.pic-box {
+  /* margin-top:20rpx; */
+  flex-flow: wrap;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.ap-box {
+  position: relative;
+}
+
+.add-pic {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+  position: relative;
+  /* margin: 20rpx 30rpx 20rpx 30rpx; */
+}
+
+/* 删除图片 */
+
+.img-de {
+  width:0;
+  height:0;
+  border-width: 45rpx 0 0 45rpx;
+  border-style:solid;
+  border-color: rgba(0,0,0,0.4) transparent transparent transparent;
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+}
+.img-de image{
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+  right: 0rpx;
+  top: -40rpx;
+}
+
+.hong-contant .teamwork-btn {
+  width: 360rpx;
+  height: 88rpx;
+  border-radius: 50rpx;
+  color: white;
+  background-color: #14a1fd;
+  margin: 0 auto;
+  margin-top: 80rpx;
+  margin-bottom: 40rpx;
+}
+.sign-inbtn {
+  margin-top: 100rpx;
+}
+
+.sign-inbtn .sign-btn {
+  background: linear-gradient(to right,#17d399, #04b0a4);
+  color: #fff;
+  border-radius: 50rpx;
+}
+.sign-inbtn .sign-btn::after {
+  border: none;
+}

@@ -1,0 +1,37 @@
+<!--pages/certificate/certificate .wxml-->
+<view class='contentBox' id="cvs">
+  <view class='share' bindtap="shareView">分享页面</view>
+  <view class='treeheader'><image src="{{treeheader}}"></image></view>
+  <view class='infoBG'>
+    <view class='userInfo'>
+      <view class='usertext'>
+        <view class='usertit'>植树人：</view>
+        <view class='username' style="font-size: 20px;">{{username}}</view>
+        <view class='username' style="font-size: 14px;" wx:if="{{userunit}}">{{userunit}}</view>
+      </view>
+    </view>
+    <view class='notice'>
+      <view>感谢您参与雄安新区千年秀林义务植树活动，并于{{ZZSJ}}成功栽植1棵身份编号为<text style="color:#2BB765" bindtap='navInfo'>{{ZZBM}}</text>的{{treeType}}。</view>
+      <view>特发此证，以资鼓励。</view>
+    </view>
+    <view class='number'>
+      <text class='notitle'>证书编号</text>
+      <text style="font-size: 14px;">{{No}}</text>
+    </view>
+    <!-- <image class='QRcode' src="{{QRcode}}"></image> -->
+    <!-- <image class='seal'></image> -->
+    <image class='treepic' src="{{treepic}}" mode="aspectFit" bindtap='shadeTo'></image>
+    <view class='foot'>
+      <view>中国雄安集团生态建设投资有限公司</view>
+      <!-- <view>{{ZZTime}}</view> -->
+    </view>
+  </view>
+</view>
+<canvas canvas-id='share' style='width:200vw;height:200vh;position: absolute;z-index:1;' hidden='{{canvasHidden}}' bindtap="tap"></canvas>
+<view class='shade' wx:if="{{shareImgPath!=''}}">
+  <image class='shareImg' src="{{shareImgPath}}"></image>
+  <view class='keepImg' bindtap='keepImg'>保存图片，分享到朋友圈~</view>
+</view>
+<view class='shade' wx:if="{{shade}}" bindtap='shadeBack'>
+  <image src="{{treepic}}" mode="aspectFit"></image>
+</view>

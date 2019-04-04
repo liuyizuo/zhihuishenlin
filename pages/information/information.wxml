@@ -1,0 +1,129 @@
+<!--pages/information/information.wxml-->
+<!-- <view class='navTop'>雄安深林</view> -->
+<view class='content'>
+  <!-- 轮播 -->
+  <swiper class='seiperImg' indicator-dots="false" indicator-color="#fff" autoplay="autoplay" interval="3000" duration="500">
+    <block wx:for="{{detailPic}}" wx:key="{{ID}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 身份证明 -->
+  <view class='identity-prove'>
+    <view class='identity-top'>
+      <view class='identity-top-text'>
+        <text>身份证明：{{treeHeadTextVal}}</text>
+      </view>
+      <view class='identity-top-place'>{{TreePlace}}</view>
+    </view>
+    <view class='identity-content'>
+      <view>苗圃名称：
+        <text>{{NurseryName}}</text>
+      </view>
+      <view wx:if="{{CheckerUser.length > 0}}">抽检用户：
+        <text>{{CheckerUser}}</text>
+      </view>
+      <view wx:if="{{InputerUser.length > 0}}">植树人员：
+        <text>{{InputerUser}}</text>
+      </view>
+      <view wx:if="{{SupervisorUser.length > 0}}">监理人员：
+        <text>{{SupervisorUser}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 详细信息 -->
+  <view class='detailed-content'>
+    <view class='detailed-content-title'>
+      <view>详细信息
+        <text class='detailed-content-line'></text>
+      </view>
+      <view class='location' bindtap='locationMap' wx:if="{{userType==1}}">地图定位</view>
+    </view>
+    <view class='detailed-content-text'>
+      <view class='detailed-text'>
+        <view>名 称 ：
+          <text>{{myInforListVal}}</text>
+        </view>
+        <view>科 属 ：
+          <text>{{TreeTypeGenera}}</text>
+        </view>
+      </view>
+      <view class='detailed-num'>
+        <view wx:if="{{xj > 0}}">胸 径 ：
+          <text>{{xj}}cm</text>
+        </view>
+        <view wx:if="{{gd > 0}}">高 度 ：
+          <text>{{gd}}cm</text>
+        </view>
+        <view wx:if="{{gf > 0}}">冠 幅 ：
+          <text>{{gf}}cm</text>
+        </view>
+        <view wx:if="{{dj > 0}}">地 径 ：
+          <text>{{dj}}cm</text>
+        </view>
+      </view>
+      <view>起苗时间 ：
+        <text>{{qmsj}}</text>
+      </view>
+      <view>栽植时间 ：
+        <text>{{zzsj}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 养护任务 -->
+  <view class='maintenance-task'>
+    <view class='detailed-content-title'>养护任务
+      <text class='detailed-content-line'></text>
+    </view>
+    <view class='main-total'>
+      <view class='main-tasktitle_01'>
+        <text class='main-taskzhu'></text>养护任务统计
+        <text>（次）</text>
+      </view>
+      <view class="table">
+        <view class="tr">
+          <view class="th" wx:for="{{curringtype}}" wx:key="{{ID}}">{{item.Base_Name}}</view>
+        </view>
+        <view class="tr">
+          <view class='td' wx:for="{{curringtype}}" wx:key="{{ID}}">{{item.Count}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='next-three'>
+      <view class='main-tasktitle_01'>
+        <text class='main-taskzhu'></text>近三次养护详情
+        <!-- <text>（次）</text> -->
+      </view>
+      <view class="table">
+        <view class="tr">
+          <view class="th">类型</view>
+          <view class="th">养护人</view>
+          <view class="th">开始时间</view>
+          <view class="th">结束时间</view>
+        </view>
+        <view class="tr" wx:for="{{curings}}" wx:key="{{ID}}">
+          <view class="td">{{item.CuringTypeName}}</view>
+          <view class="td curingMans">{{item.Curing.CuringMans}}</view>
+          <view class="td">{{item.Curing.StartTime}}</view>
+          <view class="td">{{item.Curing.EndTime}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 生长环境 -->
+  <view class='growth-environment'>
+    <view class='detailed-content-title'>生长环境
+      <text class='detailed-content-line'></text>
+    </view>
+    <view class='section'>
+      <textarea class='area-text'>
+        {{aboutMeVal}}
+      </textarea>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+<!--pages/scan/scan.wxml-->
+<view class="container">
+  <image src="../../static/scan_bg.png" class='bgPic'></image>
+  <image src="../../static/scan_logo.png" class='bgtitle'></image>
+  <image src="../../static/scan_btn.png" class='bgBtn' bindtap="showScanQRCode"></image>
+  <button class='bindwx' bindtap="bindwx">授权绑定</button>
+  <view class='foot'>技术支持：中国电建华东勘测设计研究院</view>
+</view>

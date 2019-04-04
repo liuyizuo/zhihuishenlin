@@ -1,0 +1,55 @@
+/* pages/scan/scan.wxss */
+
+.bg-box {
+  position: relative;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.bg-box img {
+  display: block;
+  max-width: 100vw;
+}
+
+.bgPic {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+
+.bgtitle {
+  width: 450rpx;
+  height: 206.25rpx;
+  position: absolute;
+  top: 100rpx;
+  z-index: 1;
+}
+
+.bgBtn {
+  width: 240rpx;
+  height: 313rpx;
+  position: absolute;
+  left: calc(50% - 120rpx);
+  top: calc(50% - 170rpx);
+  z-index: 2019;
+}
+
+.bindwx{
+  width: 450rpx;
+  position: absolute;
+  top: 850rpx;
+  background: #33ce9d;
+  color: #fff;
+  border-radius: 40rpx;
+}
+
+.foot{
+  width: 100vw;
+  position: absolute;
+  bottom: 30rpx;
+  color: #ddd;
+  text-align: center;
+  font-size: 28rpx;
+}
