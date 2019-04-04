@@ -20,58 +20,25 @@ Page({
       icon: 'loading',
       duration: 1500,
     });
-    if (type == 1) {
-      this.wxisbind().then(e=>{
-        let isbind = app.globalData.isbind;
-        if (isbind == 1){
-          wx.showToast({
-            title: '已进行过认证',
-            icon: 'success',
-            duration: 1000,
-            success: res => {
-              wx.request({
-                url: app.data.url + 'system/users?openid=' + app.globalData.dataId.openid,
-                success: res => {
-                  app.globalData.userData = res.data.content[0];
-                  self.pageJudeg(1);
-                },
-                fail: e => {
-                  wx.showToast({
-                    title: '获取用户信息失败',
-                    icon: 'none',
-                    duration: 1000,
-                  });
-                }
-              })
-            }
-          });
-        }else{
-          wx.navigateTo({
-            url: '../userBind/userBind?type=1',
-          })
-        }
-      });
-    } else if (type == 2) {
-      this.wxisVolunteerBind().then(e=>{
-        let isbind = app.globalData.isVolunteerBind;
-        if (isbind == 1) {
-          wx.showToast({
-            title: '已进行过认证',
-            icon: 'success',
-            duration: 1000,
-            success:res=>{
-              setTimeout(e=>{
-                self.pageJudeg(2);
-              }, 1000);
-            }
-          })
-        } else {
-          wx.navigateTo({
-            url: '../userBind/userBind?type=2',
-          })
-        }
-      })
-    }
+    this.wxisVolunteerBind().then(e => {
+      let isbind = app.globalData.isVolunteerBind;
+      if (isbind == 1) {
+        wx.showToast({
+          title: '已进行过认证',
+          icon: 'success',
+          duration: 1000,
+          success: res => {
+            setTimeout(e => {
+              self.pageJudeg(2);
+            }, 1000);
+          }
+        })
+      } else {
+        wx.navigateTo({
+          url: '../userBind/userBind',
+        })
+      }
+    })
   },
   //点击扫描
   showScanQRCode(e) {
@@ -166,58 +133,19 @@ Page({
         url: '../userBind/userBind'
       })
     }
-    wx.navigateBack
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let self = this;
-    // this.wxisVolunteerBind();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    let self = this;
-    // 登录
-    // wx.login({
-    //   success: res => {
-    //     app.globalData.sign = res.code;
-    //     wx.request({
-    //       url: app.data.url + 'wx/testwxinfo?code=' + res.code,
-    //       success: res => {
-    //         console.log(res)
-    //         if (res.errMsg == "request:ok") {
-    //           if (res.data.indexOf('invalid code') == -1){
-    //             app.globalData.dataId = JSON.parse(res.data);
-    //           } else {
-    //             app.globalData.dataId.openid = 'oOM0b5H9aWdQsdwxe631hfCKLaDQ'
-    //             wx.showToast({
-    //               title: '获取微信信息失败',
-    //               icon: 'none',
-    //               duration: 1500,
-    //             })
-    //           }
-    //         }else{
-    //           wx.showToast({
-    //             title: '获取微信信息失败',
-    //             icon: 'none',
-    //             duration: 1500,
-    //           })
-    //         }
-    //       },
-    //       fail:e=>{
-    //         wx.showToast({
-    //           title: '获取微信信息失败',
-    //           icon: 'none',
-    //           duration: 1500,
-    //         })
-    //       }
-    //     })
-    //   }
-    // })     
+    let self = this;  
   },
   wxisbind(){
     return new Promise((reslove, reject)=>{
@@ -241,36 +169,6 @@ Page({
       })
     })
     
-  },
-  wxisVolunteerBind(){
-    return new Promise((resolve, reject) => {
-      wx.request({
-        url: app.data.url + 'wx/wxvolunteerisbind?openid=' + app.globalData.dataId.openid,
-        // url: app.data.url + 'wx/wxvolunteerisbind?openid=oOM0b5H9aWd0FVuxe631hfCKLaDQ',
-        success: res => {
-          if (res.statusCode == 200) {
-            app.globalData.isVolunteerBind = res.data;
-            resolve();
-          } else {
-            reject();
-          }
-        },
-        fail: e =>{
-          reject();
-        }
-      })
-    })
-  },
-  pageJudeg(code){
-    if (code == 1) {
-      wx.navigateTo({
-        url: '../dateTotal/dateTotal',
-      })
-    } else if (code == 2) {
-      wx.navigateTo({
-        url: '../volunteer/volunteer',
-      })
-    }
   },
 
   /**

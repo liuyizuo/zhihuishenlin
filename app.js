@@ -37,6 +37,7 @@ App({
             }
           },
           fail: e=>{
+            console.log(e);
             wx.showToast({
               title: '无法获取微信信息',
               icon: 'none',
