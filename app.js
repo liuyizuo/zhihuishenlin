@@ -122,7 +122,7 @@ App({
   },  
   globalData: {
     userInfo: null,
-    url: 'http://tree.imrforest.com:88',
+    url: 'https://tree1.hzvmap.com',
     header: '',
     openid: '',
     isbind: 0,
